@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./app.scss";
 
 const App = () => {
@@ -142,13 +142,62 @@ const App = () => {
       text: "police car",
       color: "red",
     },
+    {
+      icon: "fa-solid fa-clock",
+      text: "watch",
+      color: "pink",
+    },
+    {
+      icon: "fa-solid fa-bridge-water",
+      text: "bridge",
+      color: "yellowgreen",
+    },
+    {
+      icon: "fa-solid fa-gun",
+      text: "gun",
+      color: "black",
+    },
+    {
+      icon: "fa-solid fa-laptop-code",
+      text: "laptop",
+      color: "yellowgreen",
+    },
+    {
+      icon: "fa-solid fa-book",
+      text: "book",
+      color: "yellowgreen",
+    },
+    {
+      icon: "fa-solid fa-house",
+      text: "house",
+      color: "brown",
+    },
+    {
+      icon: "fa-solid fa-graduation-cap",
+      text: "hat",
+      color: "black",
+    },
+    {
+      icon: "fa-solid fa-couch",
+      text: "sofa",
+      color: "purple",
+    },
+    {
+      icon: "fa-solid fa-boxes-packing",
+      text: "box",
+      color: "purple",
+    },
   ];
+
+  <i class=""></i>;
 
   const [count, setCount] = useState(0);
   const [question, SetQuestion] = useState("");
   const [correct, setCorrect] = useState(0);
   const [incorrect, setIncorrect] = useState(0);
   const [shuffledList, setShuffledList] = useState([]);
+
+  const audioRef = useRef(null);
 
   const shuffle = (arr) => {
     return [...arr].sort(() => Math.random() - 0.5);
@@ -177,14 +226,17 @@ const App = () => {
       speak("you're right");
     } else {
       setIncorrect(incorrect + 1);
-      speak("you're wrong");
+      setTimeout(() => {
+        audioRef.current.play();
+      }, 1000);
+      // speak("you're wrong");
     }
     setTimeout(() => {
       const random = shuffle(listData);
       SetQuestion(random[1].text);
       speak(random[1].text);
       setCount(count + 1);
-    }, 2000);
+    }, 5000);
   };
 
   const handleReset = () => {
@@ -201,6 +253,7 @@ const App = () => {
 
   return (
     <div className="tiger">
+      <audio ref={audioRef} src={"audio/sai.mp3"} preload="auto"></audio>
       <div className="result">
         <div className="count">
           {count > 1 ? "Questions:" : "Question"} {count}
