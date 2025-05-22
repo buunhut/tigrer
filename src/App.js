@@ -151,33 +151,41 @@ const App = () => {
 
   // console.log(question);
 
-  const hanleRead = (text) => {
-    setTimeout(() => {
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "en-US"; // English - United States
-      window.speechSynthesis.speak(utterance);
-    }, 1000);
+  // const hanleRead = (text) => {
+  //   setTimeout(() => {
+  //     const utterance = new SpeechSynthesisUtterance(text);
+  //     utterance.lang = "en-US"; // English - United States
+  //     window.speechSynthesis.speak(utterance);
+  //   }, 1000);
+  // };
+
+  //đọc text
+  const speak = (text) => {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US"; // Đặt ngôn ngữ là tiếng Việt
+    synth.speak(utterance);
   };
 
   const handleSelectIcon = (text) => {
     if (!question) {
-      hanleRead(text);
+      speak(text);
       return;
     }
 
-    hanleRead(text);
+    speak(text);
 
     if (text === question) {
       setCorrect(correct + 1);
-      hanleRead("you're right");
+      speak("you're right");
     } else {
       setIncorrect(incorrect + 1);
-      hanleRead("you're wrong");
+      speak("you're wrong");
     }
     setTimeout(() => {
       const random = shuffle(listData);
       SetQuestion(random[1].text);
-      hanleRead(random[1].text);
+      speak(random[1].text);
       setCount(count + 1);
     }, 1000);
   };
@@ -241,9 +249,9 @@ const App = () => {
           type="button"
           onClick={() => {
             if (run) {
-              hanleRead(question);
+              speak(question);
             } else {
-              hanleRead(shuffledList[5].text);
+              speak(shuffledList[5].text);
               SetQuestion(shuffledList[5].text);
               setCount(count + 1);
               setRun(!run);
