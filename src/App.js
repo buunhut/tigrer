@@ -186,6 +186,7 @@ const App = () => {
     setCorrect(0);
     setIncorrect(0);
     setCount(0);
+    SetQuestion("");
     setRun(false);
   };
 
