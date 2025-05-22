@@ -164,6 +164,7 @@ const App = () => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US"; // Đặt ngôn ngữ là tiếng Việt
+
     synth.speak(utterance);
   };
 
@@ -187,7 +188,7 @@ const App = () => {
       SetQuestion(random[1].text);
       speak(random[1].text);
       setCount(count + 1);
-    }, 1000);
+    }, 3000);
   };
 
   const handleReset = () => {
