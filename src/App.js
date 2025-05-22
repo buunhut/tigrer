@@ -137,6 +137,11 @@ const App = () => {
       text: "heart",
       color: "red",
     },
+    {
+      icon: "fa-solid fa-car-on",
+      text: "police car",
+      color: "red",
+    },
   ];
 
   const [count, setCount] = useState(0);
@@ -151,20 +156,11 @@ const App = () => {
 
   // console.log(question);
 
-  // const hanleRead = (text) => {
-  //   setTimeout(() => {
-  //     const utterance = new SpeechSynthesisUtterance(text);
-  //     utterance.lang = "en-US"; // English - United States
-  //     window.speechSynthesis.speak(utterance);
-  //   }, 1000);
-  // };
-
   //đọc text
   const speak = (text) => {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = "en-US"; // Đặt ngôn ngữ là tiếng Việt
-
     synth.speak(utterance);
   };
 
@@ -188,7 +184,7 @@ const App = () => {
       SetQuestion(random[1].text);
       speak(random[1].text);
       setCount(count + 1);
-    }, 3000);
+    }, 2000);
   };
 
   const handleReset = () => {
