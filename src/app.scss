@@ -4,6 +4,51 @@
         box-sizing: border-box;
     }
 
+    .topMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99000;
+        display: flex;
+        align-items: center;
+
+        .bar {
+            height: 50px;
+            overflow: hidden;
+            margin: 0px 10px;
+            background-color: transparent;
+            transition: background-color 0.3s;
+
+            button {
+                height: 50px;
+                border: none;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            ul {
+                display: none;
+                padding: 0 10px 10px;
+
+                li {
+                    list-style: none;
+                    padding: 5px 10px;
+                }
+            }
+
+            &:hover {
+                height: auto;
+                background-color: white;
+
+                ul {
+                    display: block;
+                    background: white;
+                }
+            }
+        }
+    }
+
+
     .tiger {
 
 
@@ -67,6 +112,7 @@
             background-color: whitesmoke;
             display: flex;
             align-items: center;
+            justify-content: center;
             margin: 50px auto;
 
 
@@ -99,6 +145,33 @@
                     }
                 }
 
+                .imgItem {
+                    border: 1px solid transparent;
+                    overflow: hidden;
+                    background-color: whitesmoke;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                    border-radius: 10px;
+
+                    img {
+                        cursor: pointer;
+                        object-fit: cover;
+
+                    }
+                }
+
+                button {
+                    background-color: green;
+                    color: white;
+                    width: 100px;
+                    height: 60px;
+                    font-size: 20px;
+                    font-weight: 500;
+                    border: none;
+                    cursor: pointer;
+                    &:hover {
+                        background-color: orangered;
+                    }
+                }
 
 
 
