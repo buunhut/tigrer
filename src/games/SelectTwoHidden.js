@@ -122,6 +122,7 @@ const SelectTwoHidden = () => {
                     src={`./img/${item.url}`}
                     alt={item.text}
                     style={{ width: size - 10, height: size - 10 }}
+                    loading="lazy"
                   />
                 ) : (
                   <div

@@ -23,6 +23,14 @@ const Index = () => {
           >
             Game 2
           </button>
+          <button
+            type="button"
+            onClick={() => {
+              navigate("/game-3");
+            }}
+          >
+            Game 3
+          </button>
         </div>
       </div>
     </div>
