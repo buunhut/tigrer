@@ -132,7 +132,18 @@ const SelectTwoHidden = () => {
                       backgroundColor: "#ccc",
                       borderRadius: 8,
                     }}
-                  ></div>
+                  >
+                    <img
+                      src={`./img/${item.url}`}
+                      alt={item.text}
+                      style={{
+                        width: size - 10,
+                        height: size - 10,
+                        display: "none",
+                      }}
+                      loading="lazy"
+                    />
+                  </div>
                 )}
               </div>
             );
